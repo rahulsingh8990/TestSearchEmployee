@@ -1,0 +1,51 @@
+<div class="container">
+<div class="row">
+    <div class="alert alert-danger" [style.display]="showError?'block':'none'" role="alert">
+               {{errorText}}
+    </div>
+</div>
+<div class="row">
+       
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" formControlName="name" aria-describedby="emailHelp" placeholder="Enter Name">
+                 
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">DateRange</label>
+                  <input type="text" class="form-control" formControlName="startDate" id="exampleInputPassword1" placeholder="DD/MM/YYYY">
+                </div>
+                <div class="form-group">
+                        <label for="exampleInputPassword1">DateRange</label>
+                        <input type="text" class="form-control" formControlName="endDate"  id="exampleInputPassword1" placeholder="DD/MM/YYYY">
+                 </div>
+                
+                <button type="submit" class="btn btn-primary">Seach</button>
+              </form>
+</div>
+    <div class="row">
+ <table class="table table-striped" *ngIf="employeeDetailsList">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Age</th>
+        <th scope="col">StartDate</th>
+        <th scope="col">EndDate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let emp of employeeDetailsList">
+        <th scope="row">{{emp.Sno}}</th>
+        <td>{{Name}}}}</td>
+        <td>{{emp.JobTitle}}</td>
+        <td>{{emp.Age}}</td>
+        <td>{{emp.EmploymentStartDate}}</td>
+        <td>{{emp.EmploymentEndDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
